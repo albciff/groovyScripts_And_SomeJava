@@ -1,7 +1,7 @@
 /**
 * @author albciff
 * Exemple de GET amb capçaleres HTTP.
-* Aquest exemple servei per a recuperar el token ID del servei del signador
+* Aquest exemple concretament serveix per a generar el token per a poder realitzar una operació amb el servei del signador
 **/
 @Grapes(
     @Grab(group='org.codehaus.groovy.modules.http-builder', module='http-builder', version='0.7.1')

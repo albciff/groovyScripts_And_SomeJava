@@ -9,7 +9,6 @@ import groovyx.net.http.HTTPBuilder
 import static groovyx.net.http.Method.*
 import groovy.transform.ToString
 
-
 // POGO resposta JSON del servei Valid amb el token d'autorització. 
 @ToString
 class AccessToken extends Expando implements Serializable {

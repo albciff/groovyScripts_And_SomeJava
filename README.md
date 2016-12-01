@@ -1,2 +1,3 @@
 # groovy-scripts
-Groovy examples and utils which I use some times
+
+Exemples i proves de concepte en Groovy... així com clients de proves d'algunes aplicacions, temes de PKI...

@@ -15,7 +15,7 @@ import java.util.Date
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 
-def serveiUrl = 'http://signador-pre.aoc.cat/signador/initProcess'
+def serveiUrl = 'https://signador-pre.aoc.cat/signador/initProcess'
 
 def http = new HTTPBuilder(serveiUrl)
 

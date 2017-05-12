@@ -1,7 +1,7 @@
 /**
 * @author albciff
-* Exemple de POST passant com a request una petició JSON
-* Aquest exemple concretament serveix per a enviar un post amb la configuració
+* Exemple de POST passant com a request una peticiÃ³ JSON
+* Aquest exemple concretament serveix per a enviar un post amb la configuraciÃ³
 * de la signatura desitjada al servei del signador
 **/
 @Grapes(
@@ -18,7 +18,11 @@ def http = new HTTPBuilder(serveiUrl)
 
 http.request( POST, JSON ) { req ->
         
-    // montem el body de la petició
+    def domini = 'http://ajuntament.cat'
+    // set headers
+    headers.origin = domini
+    
+    // montem el body de la peticiÃ³
     body = '''{
                     "callbackUrl" : "/signador/demo/receiveSignature",
                     "token" : "622e7ab8-468d-47b9-b91c-559f7efb1af1",
@@ -43,7 +47,7 @@ http.request( POST, JSON ) { req ->
     // handlers dels possibles errors
     response.'404' = { resp ->
         println 'No trobat... :('
-        // printem capçaleres
+        // printem capÃ§aleres
         response.getAllHeaders().each{
             println it
         }
@@ -51,7 +55,7 @@ http.request( POST, JSON ) { req ->
         
     response.'503' = { resp ->
         println 'Temporalment fora de servei... :_('
-        // printem capçaleres
+        // printem capÃ§aleres
         response.getAllHeaders().each{
             println it
         }
@@ -59,7 +63,7 @@ http.request( POST, JSON ) { req ->
     
     response.'500' = { resp ->
         println 'Error intern del servidor... :___('
-        // printem capçaleres
+        // printem capÃ§aleres
         response.getAllHeaders().each{
             println it
         }

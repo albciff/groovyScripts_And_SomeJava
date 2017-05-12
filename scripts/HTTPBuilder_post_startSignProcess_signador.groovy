@@ -13,12 +13,12 @@ import static groovyx.net.http.ContentType.*
 import static groovyx.net.http.Method.*
 
 def serveiUrl = 'http://signador-pre.aoc.cat/signador/startSignProcess'
-
+def domini = 'http://ajuntament.cat'
+    
 def http = new HTTPBuilder(serveiUrl)
 
 http.request( POST, JSON ) { req ->
-        
-    def domini = 'http://ajuntament.cat'
+       
     // set headers
     headers.origin = domini
     

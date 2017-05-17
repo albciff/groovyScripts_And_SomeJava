@@ -33,7 +33,7 @@ http.request( POST, JSON ) { req ->
                         "doc_type":"4",
                         "doc_name" : "Itaca.pdf",
                         "document_to_sign":"JVBERi0xL...",
-                        "hash_algorithm" : "SHA1"
+                        "hash_algorithm" : "SHA-1"
                 }
             }'''
 

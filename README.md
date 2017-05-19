@@ -1,3 +1,5 @@
-# groovy-scripts
+# groovyScripts_And_SomeJava
 
 Exemples i proves de concepte en Groovy... així com clients de proves d'algunes aplicacions, temes de PKI...
+
+I alguns mains en Java...

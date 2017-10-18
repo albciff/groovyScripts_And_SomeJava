@@ -1,9 +1,8 @@
 /**
-* @albciff
-*
 * Generate a union of truststore sets (A ∪ B), from A set truststore and B set truststotre
 *
-* For the Catalan republic!
+* @author albciff
+* http://stackoverflow.com/users/1218618/albciff
 *
 **/
 import java.security.KeyStore;

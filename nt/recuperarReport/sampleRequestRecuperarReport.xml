@@ -7,8 +7,8 @@
                <pat:Rol>EMPLEAT</pat:Rol>
             </pat:Usuari>
             <pat:Emissor>
-			         <pat:CodiOrganisme>XXXXXX</pat:CodiOrganisme>
-               <pat:CodiDepartament>XXXXXXX</pat:CodiDepartament>
+		<pat:CodiOrganisme>XXXXXX</pat:CodiOrganisme>
+		<pat:CodiDepartament>XXXXXXX</pat:CodiDepartament>
             </pat:Emissor>
             <pat:DataReport>YYYY-MM-DD</pat:DataReport>
          </pat:PeticioRecuperarReport>

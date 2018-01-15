@@ -1,0 +1,17 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:nt="http://www.openuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <nt:procesa>
+         <pat:PeticioRecuperarReport xmlns:pat="http://www.aocat.net/NT/v3.2">
+            <pat:Usuari>
+               <pat:Rol>EMPLEAT</pat:Rol>
+            </pat:Usuari>
+            <pat:Emissor>
+			         <pat:CodiOrganisme>XXXXXX</pat:CodiOrganisme>
+               <pat:CodiDepartament>XXXXXXX</pat:CodiDepartament>
+            </pat:Emissor>
+            <pat:DataReport>YYYY-MM-DD</pat:DataReport>
+         </pat:PeticioRecuperarReport>
+      </nt:procesa>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -37,18 +37,14 @@ sql.eachRow("select distinct(cert_digital),nom from aoc_nt_entitat where cert_di
     def certificate = getCertificate(it.cert_digital,log)
     try{
         certificate.checkValidity()
+        String serial = certificate.getSerialNumber().toString(16);    
+        log.append("serial: ${serial}")
+        log.append("-----------------------------\n")
+        serialsList << serial
+        serialMap << [serial:ens]
     }catch(Exception e){
         log.append("El certificat ha expirat o encara no és valid... el descartem ${e.getMessage()}\n")
     }
-    
-    
-    String serial = certificate.getSerialNumber().toString(16);    
-    
-    log.append("serial: ${serial}")
-    log.append("-----------------------------\n")
-    serialsList << serial
-    serialMap << [serial:ens]
-    
 });
 
 serialsList.unique()

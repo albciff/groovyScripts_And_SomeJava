@@ -1,0 +1,23 @@
+// exemple de pujada de JAR generat fora del projecte gradle
+apply plugin: 'maven'
+
+configurations {
+  resultArchives
+}
+
+uploadArchives {
+	repositories {
+	   mavenDeployer {
+			 repository(url: 'http://XXXXXXXXXXXXXXXX/nexus/content/repositories/thirdparty/') {
+          authentication(userName: 'XXXXXXXX', password: 'XXXXXXX')
+        }
+			 pom.version = '1.0.1'
+			 pom.artifactId = 'enotum-model.jar'
+			 pom.groupId = 'cat.aoc.enotum'
+	   }
+	}
+}
+
+artifacts {
+    resultArchives  file: file('./enotum-model-1.0.1.jar')
+}

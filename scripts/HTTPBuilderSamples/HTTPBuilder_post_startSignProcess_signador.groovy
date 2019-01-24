@@ -25,14 +25,14 @@ http.request( POST, JSON ) { req ->
     body = '''{
                     "callbackUrl" : "/signador/demo/receiveSignature",
                     "token" : "622e7ab8-468d-47b9-b91c-559f7efb1af1",
-                    "descripcio" : "Document de proves",
+                    "descripcio" : "Hash de proves",
                     "applet_cfg" :
                     {
                         "keystore_type":"0",
                         "signature_mode":"12",
-                        "doc_type":"4",
-                        "doc_name" : "Itaca.pdf",
-                        "document_to_sign":"JVBERi0xL...",
+                        "doc_type":"3",
+                        "doc_name" : "Itaca.hash.bin",
+                        "document_to_sign":"x/jw/6C/1DDqxF6BDi8mNiYEoc0=",
                         "hash_algorithm" : "SHA-1"
                 }
             }'''

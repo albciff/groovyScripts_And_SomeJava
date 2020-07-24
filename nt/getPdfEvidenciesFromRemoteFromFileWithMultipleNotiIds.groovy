@@ -1,7 +1,10 @@
 /**
 * @author albciff
-* Llegeix un fitxer amb id noti per linea, i recupera l'evidencia pdf per cada id de noti, 
+* Llegeix un fitxer amb id noti per linea (C:/temp/fileNotis.txt), i recupera l'evidencia pdf per cada id de noti, 
 * copia el zip de remot a disc i descomprimeix el pdf
+*
+*  Per recuperar PDF d'estat final (ciutadà) prefix ZC
+*  Per recuperar PDF de comunicacions en estat NO final (admin) prefix ZA
 **/
 import java.security.MessageDigest
 import java.util.zip.*
@@ -34,8 +37,8 @@ ssh.settings {
 
 ssh.remotes {
 	entorn {
-	  host = 'XXX.XXX.XXX.XXX'
-	  user = 'Hope'
+	  host = 'XXXXXXXXX'
+	  user = 'hope'
 	  password = 'no hate'
 	}
 }
@@ -44,20 +47,26 @@ def lines = fileIdNotis.readLines()
 lines.each { String idNotificacio ->
 	
 	idNotificacio = idNotificacio.trim()
-	def prefix = 'ZC'
+	def prefix = 'ZC' // use ZA per administració (pdf diposit p.e per comunicacions)
 	def lang = '' // buit català, '_ES' o '_OC' per castellà i aranés respectivament
 	prefix += lang
 	MessageDigest sha1 = MessageDigest.getInstance("SHA1")
 	def hash = sha1.digest("${prefix}_${idNotificacio}".getBytes('UTF-8')).encodeHex().toString()
 	def path = hash.take(2) + '/' + hash.substring(2,4) + '/' + prefix + '_' + hash
-	println "NOTI ${idNotificacio} > PATH: ${path}" // sobre /NT30/repCiutada
+	println "NOTI ${idNotificacio} > PATH: ${path}" // sobre /NT30/repCiutada o /NT30/repempleat
 	
+
 	def zipEvidencia = "C:/temp/PDFs/${idNotificacio}_evidencia.zip"
 	def pdfEvidencia = new File("C:/temp/PDFs/${idNotificacio}_evidencia.pdf")
 	
+	def remotePathBase = '/apps/aoc20/APP/NT30/repCiutada/'
+	if(prefix == 'ZA'){
+	    remotePathBase = '/apps/aoc20/APP/NT30/repEmpleat/'
+	}
+	
 	ssh.run {
 		session(ssh.remotes.entorn) {
-		  get from: "/apps/aoc/APP/NT30/repCiutada/${path}", into: zipEvidencia
+		  get from: "${remotePathBase}${path}", into: zipEvidencia
 		}
 	}
 	

@@ -34,6 +34,7 @@ println path // sobre /NT30/repCiutada
 
 ssh.run {
     session(ssh.remotes.entorn) {
-      get from: "/apps/aoc/APP/NT30/repCiutada/${path}", into: "C:/temp/PDFs/"
+      //get from: "/apps/aoc/APP/NT30/repCiutada/${path}", into: "C:/temp/PDFs/"
+         get from: "/apps/aoc20/APP/NT30/repCiutada/${path}", into: "C:/temp/PDFs/"
     }
 }

@@ -7,12 +7,16 @@ int PORT = 8080
 HttpServer.create(new InetSocketAddress(PORT), 0).with {
     println "Server is listening on ${PORT}, hit Ctrl+C to exit."    
     createContext("/callback") { http ->	
-		def query = http.getRequestURI().getQuery()
+		def query = http.getRequestURI().getRawQuery()
 		
 		Map<String, String> result = new HashMap<>();
 		for (String param : query.split("&")) {
-			String[] entry = param.split("=");
+			
+			param = java.net.URLDecoder.decode(param, "UTF-8")
+			
+			String[] entry = param.split("=",2);
 			if (entry.length > 1) {
+				println entry
 				result.put(entry[0], entry[1]);
 			}else{
 				result.put(entry[0], "");
